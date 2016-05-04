@@ -129,6 +129,11 @@ config TARGET_VINCO
 	bool "Support VINCO"
 	select CPU_V7
 	select SUPPORT_SPL
+	
+config TARGET_SAMA5D4_LORIX_ONE
+	bool "Support LORIX One"
+	select CPU_V7
+	select SUPPORT_SPL
 
 endchoice
 
@@ -155,6 +160,7 @@ source "board/denx/ma5d4evk/Kconfig"
 source "board/egnite/ethernut5/Kconfig"
 source "board/esd/meesc/Kconfig"
 source "board/l+g/vinco/Kconfig"
+source "board/wifx/sama5d4_lorix_one/Kconfig"
 source "board/mini-box/picosam9g45/Kconfig"
 source "board/ronetix/pm9261/Kconfig"
 source "board/ronetix/pm9263/Kconfig"
