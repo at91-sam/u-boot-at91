@@ -55,6 +55,7 @@ static void sama5d4_lorix_one_spi0_hw_init(void)
 	/* Enable clock */
 	at91_periph_clk_enable(ATMEL_ID_SPI0);
 }
+
 #endif /* CONFIG_ATMEL_SPI */
 
 #ifdef CONFIG_NAND_ATMEL
@@ -100,14 +101,6 @@ static void sama5d4_lorix_one_nand_hw_init(void)
 }
 #endif
 
-#ifdef CONFIG_CMD_USB
-static void sama5d4_lorix_one_usb_hw_init(void)
-{
-	at91_set_pio_output(AT91_PIO_PORTE, 11, 1);
-	at91_set_pio_output(AT91_PIO_PORTE, 14, 1);
-}
-#endif
-
 #ifdef CONFIG_GENERIC_ATMEL_MCI
 void sama5d4_lorix_one_mci1_hw_init(void)
 {
@@ -137,9 +130,6 @@ void sama5d4_lorix_one_mci1_hw_init(void)
 
 int board_mmc_init(bd_t *bis)
 {
-	/* Enable the power supply */
-	at91_set_pio_output(AT91_PIO_PORTE, 4, 0);
-
 	return atmel_mci_init((void *)ATMEL_BASE_MCI1);
 }
 #endif /* CONFIG_GENERIC_ATMEL_MCI */
@@ -201,12 +191,6 @@ int board_init(void)
 #endif
 #ifdef CONFIG_MACB
 	sama5d4_lorix_one_macb0_hw_init();
-#endif
-#ifdef CONFIG_LCD
-	sama5d4_lorix_one_lcd_hw_init();
-#endif
-#ifdef CONFIG_CMD_USB
-	sama5d4_lorix_one_usb_hw_init();
 #endif
 #ifdef CONFIG_USB_GADGET_ATMEL_USBA
 	at91_udp_hw_init();
