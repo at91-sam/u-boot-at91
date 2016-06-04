@@ -515,6 +515,11 @@ config TARGET_SAMA5D3XEK
 	select CPU_V7
 	select SUPPORT_SPL
 
+config TARGET_SAMA5D4_LORIX_ONE
+	bool "Support sama5d4_lorix_one"
+	select CPU_V7
+	select SUPPORT_SPL
+
 config TARGET_SAMA5D4_XPLAINED
 	bool "Support sama5d4_xplained"
 	select CPU_V7
@@ -994,6 +999,7 @@ source "board/ttcontrol/vision2/Kconfig"
 source "board/udoo/Kconfig"
 source "board/vpac270/Kconfig"
 source "board/wandboard/Kconfig"
+source "board/wifx/sama5d4_lorix_one/Kconfig"
 source "board/woodburn/Kconfig"
 source "board/xaeniax/Kconfig"
 source "board/zipitz2/Kconfig"
