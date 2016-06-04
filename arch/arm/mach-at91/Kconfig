@@ -129,7 +129,7 @@ config TARGET_VINCO
 	bool "Support VINCO"
 	select CPU_V7
 	select SUPPORT_SPL
-	
+
 config TARGET_SAMA5D4_LORIX_ONE
 	bool "Support LORIX One"
 	select CPU_V7

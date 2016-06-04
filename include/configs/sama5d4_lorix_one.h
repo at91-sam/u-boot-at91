@@ -1,8 +1,8 @@
 /*
  * Configuration settings for the SAMA5D4 Wifx LORIX One board.
  *
- * Copyright (C) 2014 Atmel
- *		      Bo Shen <voice.shen@atmel.com>
+ * Copyright (C) 2016 Wifx Sàrl
+ *		      Yannick Lanz <yannick.lanz@gmail.com>
  *
  * SPDX-License-Identifier:	GPL-2.0+
  */
