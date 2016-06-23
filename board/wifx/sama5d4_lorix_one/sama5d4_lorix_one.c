@@ -102,14 +102,6 @@ static void sama5d4_lorix_one_nand_hw_init(void)
 }
 #endif
 
-#ifdef CONFIG_CMD_USB
-static void sama5d4_lorix_one_usb_hw_init(void)
-{
-	at91_set_pio_output(AT91_PIO_PORTE, 11, 1);
-	at91_set_pio_output(AT91_PIO_PORTE, 14, 1);
-}
-#endif
-
 #ifdef CONFIG_GENERIC_ATMEL_MCI
 void sama5d4_lorix_one_mci1_hw_init(void)
 {
@@ -140,7 +132,7 @@ void sama5d4_lorix_one_mci1_hw_init(void)
 int board_mmc_init(bd_t *bis)
 {
 	/* Enable the power supply */
-	at91_set_pio_output(AT91_PIO_PORTE, 4, 0);
+	//at91_set_pio_output(AT91_PIO_PORTE, 4, 0);
 
 	return atmel_mci_init((void *)ATMEL_BASE_MCI1);
 }
@@ -204,9 +196,6 @@ int board_init(void)
 #ifdef CONFIG_MACB
 	sama5d4_lorix_one_macb0_hw_init();
 #endif
-#ifdef CONFIG_CMD_USB
-	sama5d4_lorix_one_usb_hw_init();
-#endif
 #ifdef CONFIG_USB_GADGET_ATMEL_USBA
 	at91_udp_hw_init();
 #endif
@@ -246,7 +235,7 @@ int board_eth_init(bd_t *bis)
 				printf("i2c bus 0 is not valid\n");
 			} else {
 				/* Read MAC address */
-				if (i2c_read(0x5c, 0x9a, 1, buf, 6)) {
+				if (i2c_read(0x58, 0x9a, 1, buf, 6)) {
 					printf("MAC address read failed\n");
 				} else {
 					if (is_valid_ether_addr(buf)) {
