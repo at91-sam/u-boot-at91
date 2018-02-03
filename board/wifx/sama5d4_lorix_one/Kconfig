@@ -1,0 +1,15 @@
+if TARGET_SAMA5D4_LORIX_ONE
+
+config SYS_BOARD
+	default "sama5d4_lorix_one"
+
+config SYS_VENDOR
+	default "wifx"
+	
+config SYS_SOC
+	default "at91"
+
+config SYS_CONFIG_NAME
+	default "sama5d4_lorix_one"
+
+endif

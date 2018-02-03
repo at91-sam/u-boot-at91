@@ -68,11 +68,11 @@
 				"fatload mmc 0:1 0x22000000 zImage; "	\
 				"bootz 0x22000000 - 0x21000000"
 #define CONFIG_BOOTARGS							\
-	"console=ttyS0,115200 earlyprintk "				\
+	"console=ttyS0,115200 earlyprintk cma=0 "	\
 	"root=/dev/mmcblk0p2 rw rootwait"
 #else
 #define CONFIG_BOOTARGS							\
-	"console=ttyS0,115200 earlyprintk "				\
+	"console=ttyS0,115200 earlyprintk cma=0 "	\
 	"mtdparts=atmel_nand:256k(bootstrap)ro,768k(uboot)ro,"		\
 	"256K(env_redundant),256k(env),"				\
 	"512k(dtb),6M(kernel)ro,-(rootfs) "				\
