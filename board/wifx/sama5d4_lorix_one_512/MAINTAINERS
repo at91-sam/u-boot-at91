@@ -1,0 +1,7 @@
+SAMA5D4 LORIX One Wifx gateway
+M:	Yannick Lanz <yannick.lanz@gmail.com>
+S:	Maintained
+F:	board/wifx/sama5d4_lorix_one_512/
+F:	include/configs/sama5d4_lorix_one_512.h
+F:	configs/sama5d4_lorix_one_512_mmc_defconfig
+F:	configs/sama5d4_lorix_one_512_nandflash_defconfig

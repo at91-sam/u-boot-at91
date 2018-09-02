@@ -371,6 +371,9 @@ dtb-$(CONFIG_TARGET_SAMA5D4_XPLAINED) += \
 dtb-$(CONFIG_TARGET_SAMA5D4_LORIX_ONE) += \
 	at91-sama5d4_lorix_one.dtb
 
+dtb-$(CONFIG_TARGET_SAMA5D4_LORIX_ONE_512) += \
+	at91-sama5d4_lorix_one_512.dtb
+
 dtb-$(CONFIG_ARCH_BCM283X) += \
 	bcm2835-rpi-a-plus.dtb \
 	bcm2835-rpi-a.dtb \

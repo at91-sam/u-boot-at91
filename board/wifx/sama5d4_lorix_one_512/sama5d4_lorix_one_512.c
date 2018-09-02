@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2014 Atmel
- *		      Bo Shen <voice.shen@atmel.com>
+ * Copyright (C) 2018 Wifx
+ *		      Yannick Lanz <yannick.lanz@gmail.com>
  *
  * SPDX-License-Identifier:	GPL-2.0+
  */
@@ -16,19 +16,14 @@
 #include <asm/arch/clk.h>
 #include <asm/arch/sama5d3_smc.h>
 #include <asm/arch/sama5d4.h>
-#include <atmel_lcd.h>
 #include <debug_uart.h>
 #include <nand.h>
 #include <version.h>
-#include <video.h>
-#ifdef CONFIG_DM_VIDEO
-#include <video_console.h>
-#endif
 
 DECLARE_GLOBAL_DATA_PTR;
 
 #ifdef CONFIG_NAND_ATMEL
-static void sama5d4_xplained_nand_hw_init(void)
+static void sama5d4_lorix_one_nand_hw_init(void)
 {
 	struct at91_smc *smc = (struct at91_smc *)ATMEL_BASE_SMC;
 
@@ -146,7 +141,7 @@ int board_late_init(void)
 #endif
 
 #ifdef CONFIG_DEBUG_UART_BOARD_INIT
-static void sama5d4_xplained_serial3_hw_init(void)
+static void sama5d4_lorix_one_serial3_hw_init(void)
 {
 	at91_pio3_set_b_periph(AT91_PIO_PORTE, 17, 1);	/* TXD3 */
 	at91_pio3_set_b_periph(AT91_PIO_PORTE, 16, 0);	/* RXD3 */
@@ -157,7 +152,7 @@ static void sama5d4_xplained_serial3_hw_init(void)
 
 void board_debug_uart_init(void)
 {
-	sama5d4_xplained_serial3_hw_init();
+	sama5d4_lorix_one_serial3_hw_init();
 }
 #endif
 
@@ -222,7 +217,7 @@ int board_init(void)
 	gd->bd->bi_boot_params = CONFIG_SYS_SDRAM_BASE + 0x100;
 
 #ifdef CONFIG_NAND_ATMEL
-	sama5d4_xplained_nand_hw_init();
+	sama5d4_lorix_one_nand_hw_init();
 #endif
 #ifdef CONFIG_CMD_USB
 	sama5d4_xplained_usb_hw_init();
@@ -243,13 +238,13 @@ int dram_init(void)
 void spl_board_init(void)
 {
 #if CONFIG_SYS_USE_NANDFLASH
-	sama5d4_xplained_nand_hw_init();
+	sama5d4_lorix_one_nand_hw_init();
 #endif
 }
 
 static void ddr2_conf(struct atmel_mpddrc_config *ddr2)
 {
-	ddr2->md = (ATMEL_MPDDRC_MD_DBW_32_BITS | ATMEL_MPDDRC_MD_DDR2_SDRAM);
+	ddr2->md = (ATMEL_MPDDRC_MD_DBW_16_BITS | ATMEL_MPDDRC_MD_DDR2_SDRAM);
 
 	ddr2->cr = (ATMEL_MPDDRC_CR_NC_COL_10 |
 		    ATMEL_MPDDRC_CR_NR_ROW_14 |

@@ -145,6 +145,13 @@ config TARGET_SAMA5D4_LORIX_ONE
 	select BOARD_EARLY_INIT_F
 	select BOARD_LATE_INIT
 
+config TARGET_SAMA5D4_LORIX_ONE_512
+	bool "Wifx SAMA5D4 LORIX One (512MB NAND version)"
+	select CPU_V7
+	select SUPPORT_SPL
+	select BOARD_EARLY_INIT_F
+	select BOARD_LATE_INIT
+
 config TARGET_MEESC
 	bool "Support meesc"
 	select CPU_ARM926EJS
@@ -216,5 +223,6 @@ source "board/siemens/corvus/Kconfig"
 source "board/siemens/taurus/Kconfig"
 source "board/siemens/smartweb/Kconfig"
 source "board/wifx/sama5d4_lorix_one/Kconfig"
+source "board/wifx/sama5d4_lorix_one_512/Kconfig"
 
 endif
